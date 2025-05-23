@@ -1,3 +1,10 @@
 coit12200\wis\App.class
+coit12200\wis\roles\ValidationResponse.class
+coit12200\wis\roles\WhiskeyDataValidator$RangeValidationResponse.class
+coit12200\wis\data\WhiskeyData$WhiskeyDetails.class
 module-info.class
 coit12200\wis\view\QueryController.class
+coit12200\wis\data\WhiskeyData.class
+coit12200\wis\roles\WhiskeyDataManager.class
+coit12200\wis\roles\WhiskeyDataValidator$Range.class
+coit12200\wis\roles\WhiskeyDataValidator.class
