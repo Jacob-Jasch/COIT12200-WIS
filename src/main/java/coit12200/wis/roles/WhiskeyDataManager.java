@@ -63,24 +63,22 @@ public class WhiskeyDataManager {
         return null;
     }
 
-    public WhiskeyDetails next()
-    {
-        if (currentIndex < records.size() - 1) {
-            currentIndex++;
-            currentRecord = records.get(currentIndex);
-            return currentRecord;
+    public WhiskeyDetails next() {
+        if (records == null || currentIndex == -1 || currentIndex >= records.size() - 1) {
+            return null;
         }
-        return null;
+        currentIndex++;
+        currentRecord = records.get(currentIndex);
+        return currentRecord;
     }
 
-    public WhiskeyDetails previous()
-    {
-        if (currentIndex > 0) {
-            currentIndex--;
-            currentRecord = records.get(currentIndex);
-            return currentRecord;
+    public WhiskeyDetails previous() {
+        if (records == null || currentIndex <= 0) {
+            return null;
         }
-        return null;
+        currentIndex--;
+        currentRecord = records.get(currentIndex);
+        return currentRecord;
     }
 
     public void connect()

@@ -7,6 +7,7 @@ package coit12200.wis.view;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import coit12200.wis.roles.SceneCoordinator;
 import coit12200.wis.roles.WhiskeyDataValidator;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,6 +17,7 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import coit12200.wis.roles.WhiskeyDataManager;
 import coit12200.wis.data.WhiskeyData;
+import coit12200.wis.data.WhiskeyData.WhiskeyDetails;
 
 /**
  * FXML Controller class
@@ -57,6 +59,13 @@ public class QueryController implements Initializable {
     private WhiskeyDataManager dataManager;
     private WhiskeyData wd;
     private WhiskeyDataValidator validator;
+    private SceneCoordinator sceneCoordinator;
+
+    public void inject(SceneCoordinator sc, WhiskeyDataManager wdm, WhiskeyDataValidator wdv) {
+        this.sceneCoordinator = sc;
+        this.dataManager = wdm;
+        this.validator = wdv;
+    }
 
     /**
      * Initializes the controller class.
@@ -89,7 +98,7 @@ public class QueryController implements Initializable {
 
     @FXML
     private void nextAction(ActionEvent event) {
-        WhiskeyData.WhiskeyDetails nextRecord = dataManager.next();
+        WhiskeyDetails nextRecord = dataManager.next();
         if (nextRecord != null) {
             txtDistillery.setText(nextRecord.distillery());
             txtAge.setText("" + nextRecord.age());
@@ -103,7 +112,7 @@ public class QueryController implements Initializable {
 
     @FXML
     private void previousAction(ActionEvent event) {
-        WhiskeyData.WhiskeyDetails previousRecord = dataManager.previous();
+        WhiskeyDetails previousRecord = dataManager.previous();
         if (previousRecord != null) {
             txtDistillery.setText(previousRecord.distillery());
             txtAge.setText("" + previousRecord.age());
@@ -120,7 +129,7 @@ public class QueryController implements Initializable {
         int count = dataManager.findAllMalts();
 
         if (count > 0) {
-            WhiskeyData.WhiskeyDetails record = dataManager.first();
+            WhiskeyDetails record = dataManager.first();
 
             txtDistillery.setText(record.distillery());
             txtAge.setText("" + record.age());
@@ -145,7 +154,7 @@ public class QueryController implements Initializable {
 
         int count = dataManager.findMaltsFromRegion(region);
         if (count > 0) {
-            WhiskeyData.WhiskeyDetails record = dataManager.first();
+            WhiskeyDetails record = dataManager.first();
 
             txtDistillery.setText(record.distillery());
             txtAge.setText("" + record.age());
@@ -171,7 +180,7 @@ public class QueryController implements Initializable {
 
         int count = dataManager.findMaltsInAgeRange(result.r().lower(), result.r().upper());
         if (count > 0) {
-            WhiskeyData.WhiskeyDetails record = dataManager.first();
+            WhiskeyDetails record = dataManager.first();
 
             txtDistillery.setText(record.distillery());
             txtAge.setText("" + record.age());
