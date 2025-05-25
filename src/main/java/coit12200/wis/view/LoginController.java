@@ -1,5 +1,6 @@
 package coit12200.wis.view;
 
+import coit12200.wis.data.UserData;
 import coit12200.wis.roles.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,7 +38,24 @@ public class LoginController {
 
     @FXML
     private void loginAction(ActionEvent event) {
-        sceneCoordinator.setScene(SceneCoordinator.SceneKey.QUERY);
+        String username = txtUserName.getText();
+        String password = txtPassword.getText();
+
+        ValidationResponse fieldCheck = validator.checkForFieldsPresent(username, password);
+        if (!fieldCheck.result()) {
+            txaMessages.setText(fieldCheck.message());
+            return;
+        }
+
+        UserData.UserDetails userDetails = dataManager.findUser(username);
+        ValidationResponse loginCheck = validator.checkCurrentDetails(userDetails, username, password);
+        if (loginCheck.result()) {
+            txaMessages.setText(loginCheck.message());
+        } else {
+            txaMessages.setText("Password checking still under development");
+            //REMOVE ONCE FINISHED
+            System.out.println("Issues: " + loginCheck.message());
+        }
     }
 
     @FXML

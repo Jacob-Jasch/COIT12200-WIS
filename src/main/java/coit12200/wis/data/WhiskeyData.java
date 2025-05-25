@@ -33,11 +33,9 @@ public class WhiskeyData {
 
     public List<WhiskeyDetails> getAllMalts(){
         List<WhiskeyDetails> allMalts = new ArrayList<>();
-        Statement statement = null;
-        ResultSet resultSet = null;
         try {
-            statement = connection.createStatement();
-            resultSet = statement.executeQuery("SELECT distillery, age, region, price FROM SINGLEMALTS");
+            Statement statement = connection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT distillery, age, region, price FROM SINGLEMALTS");
             while (resultSet.next()) {
                 allMalts.add(new WhiskeyDetails(
                         resultSet.getString(1),
