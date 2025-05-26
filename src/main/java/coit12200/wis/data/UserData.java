@@ -3,15 +3,22 @@ package coit12200.wis.data;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
+import static coit12200.wis.roles.UserDataValidator.generateSHA1;
 
 public class UserData {
     public record UserDetails(String user, String password){};
     Connection connection;
 
+    /**
+     *
+     */
     public UserData() {
 
     }
 
+    /**
+     *
+     */
     public void connect() {
         try {
             connection = DriverManager.
@@ -22,6 +29,9 @@ public class UserData {
         }
     }
 
+    /**
+     *
+     */
     public void disconnect() {
         try {
             connection.close();
@@ -30,6 +40,11 @@ public class UserData {
         }
     }
 
+    /**
+     *
+     * @param n
+     * @return
+     */
     public List<UserDetails> getUser(String n){
         List<UserDetails> users = new ArrayList<>();
         try {
@@ -46,22 +61,27 @@ public class UserData {
         } catch (Exception e) {
             System.out.println(e);
         }
-
         return users;
     }
 
+    /**
+     *
+     * @param n
+     * @param p
+     * @return
+     */
     public int updatePassword(String n, String p){
         int rowsAffected = 0;
         try {
-            String sql = "UPDATE USERS SET password = ? WHERE username = ?";
+            String hashedPassword = generateSHA1(p);
+            String sql = "UPDATE PASSWORDS SET password = ? WHERE username = ?";
             PreparedStatement preparedStatement = connection.prepareStatement(sql);
             preparedStatement.setString(1, p);
             preparedStatement.setString(2, n);
             rowsAffected = preparedStatement.executeUpdate();
         } catch (Exception e) {
-            System.out.println(e);
+            System.out.println("Error in updatePassword: " + e.getMessage());
         }
-
         return rowsAffected;
     }
 }

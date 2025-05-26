@@ -19,6 +19,11 @@ import java.io.IOException;
  */
 public class App extends Application {
 
+    /**
+     *
+     * @param stage
+     * @throws IOException
+     */
     @Override
     public void start(Stage stage) throws IOException {
         SceneCoordinator sc = new SceneCoordinator(stage);
@@ -60,10 +65,20 @@ public class App extends Application {
         sc.start();
     }
 
+    /**
+     *
+     * @param args
+     */
     public static void main(String[] args) {
         launch();
     }
 
+    /**
+     *
+     * @param key
+     * @return
+     * @throws Exception
+     */
     private static Scene makeScene(SceneKey key) throws Exception  {
         // construct path name for fxml file
         String fxml = "/coit12200/wis/view/"+key.name().toLowerCase()+".fxml";

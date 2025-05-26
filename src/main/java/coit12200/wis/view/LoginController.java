@@ -40,22 +40,21 @@ public class LoginController {
     private void loginAction(ActionEvent event) {
         String username = txtUserName.getText();
         String password = txtPassword.getText();
-
         ValidationResponse fieldCheck = validator.checkForFieldsPresent(username, password);
         if (!fieldCheck.result()) {
             txaMessages.setText(fieldCheck.message());
             return;
         }
-
         UserData.UserDetails userDetails = dataManager.findUser(username);
         ValidationResponse loginCheck = validator.checkCurrentDetails(userDetails, username, password);
-        if (loginCheck.result()) {
+        if (!loginCheck.result()) {
             txaMessages.setText(loginCheck.message());
-        } else {
-            txaMessages.setText("Password checking still under development");
-            //REMOVE ONCE FINISHED
-            System.out.println("Issues: " + loginCheck.message());
+            if (loginCheck.message().contains("default password")) {
+                sceneCoordinator.setScene(SceneCoordinator.SceneKey.PASSWORD);
+            }
+            return;
         }
+        sceneCoordinator.setScene(SceneCoordinator.SceneKey.QUERY);
     }
 
     @FXML
@@ -65,6 +64,9 @@ public class LoginController {
 
     @FXML
     private void clearAction(ActionEvent event) {
+        txtUserName.clear();
+        txaMessages.clear();
+        txtPassword.clear();
     }
 
     @FXML

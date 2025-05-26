@@ -1,5 +1,7 @@
 package coit12200.wis.view;
 
+import coit12200.wis.data.UserData.UserDetails;
+import coit12200.wis.data.UserData;
 import coit12200.wis.roles.*;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -37,11 +39,34 @@ public class PasswordController {
 
     @FXML
     private void submitAction(ActionEvent event) {
-        sceneCoordinator.setScene(SceneCoordinator.SceneKey.LOGIN);
+        String username = txtUserName.getText();
+        String oldPassword = txtOldPassword.getText();
+        String newPassword = txtNewPassword.getText();
+
+        UserDetails userDetails = dataManager.findUser(username);
+        ValidationResponse response = validator.checkNewDetails(userDetails, username, oldPassword, newPassword);
+
+        if (response.result()) {
+            String encryptedPassword = UserDataValidator.generateSHA1(newPassword);
+            int rowsAffected = dataManager.updatePassword(username, encryptedPassword);
+
+            if (rowsAffected > 0) {
+                txaMessages.setText("Password updated successfully. Please log in.");
+                sceneCoordinator.setScene(SceneCoordinator.SceneKey.LOGIN);
+            } else {
+                txaMessages.setText("Failed to update password.");
+            }
+        } else {
+            txaMessages.setText(response.message());
+        }
     }
 
     @FXML
     private void clearAction(ActionEvent event) {
+        txaMessages.clear();
+        txtNewPassword.clear();
+        txtOldPassword.clear();
+        txtUserName.clear();
     }
 
     @FXML
