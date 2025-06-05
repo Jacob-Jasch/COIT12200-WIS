@@ -6,9 +6,20 @@ import java.math.BigInteger;
 import java.security.MessageDigest;
 import java.security.NoSuchAlgorithmException;
 
+/**
+ * UserDataValidator class is responsible for validating user data such as usernames and passwords.
+ * It provides methods to generate SHA-1 hashes, check current and new user details,
+ * @author Jacob Duckworth
+ */
 public class UserDataValidator {
+    /** Minimum password length required for validation. */
     private static final int MINIMUM_PASSWORD_LENGTH = 8;
 
+    /**
+     * Generates a SHA-1 hash of the provided string.
+     * @param s the string to be hashed
+     * @return the SHA-1 hash of the string
+     */
     public static String generateSHA1(String s){
         try {
             MessageDigest md = MessageDigest.getInstance("SHA-1");
@@ -32,10 +43,21 @@ public class UserDataValidator {
         return null;
     }
 
+    /**
+     * Constructor for UserDataValidator.
+     */
     public UserDataValidator() {
 
     }
 
+    /**
+     * Checks the current user details against the provided username and old password.
+     * It validates if the user exists, if the password matches the old password,
+     * @param ud the UserDetails object containing user information
+     * @param n the username to check
+     * @param oldp the old password to check
+     * @return ValidationResponse indicating the result of the validation
+     */
     public ValidationResponse checkCurrentDetails(UserDetails ud, String n, String oldp){
         if (ud == null || !ud.user().equals(n)) {
             return new ValidationResponse(false, "User not found.");
@@ -49,6 +71,15 @@ public class UserDataValidator {
         return new ValidationResponse(false, "An unexpected error has occurred.");
     }
 
+    /**
+     * Checks the new user details against the provided username, old password, and new password.
+     * It validates if the user exists, if the old password matches, and if the new password meets the criteria.
+     * @param ud the UserDetails object containing user information
+     * @param n the username to check
+     * @param oldp the old password to check
+     * @param newp the new password to validate
+     * @return ValidationResponse indicating the result of the validation
+     */
     public ValidationResponse checkNewDetails(UserDetails ud, String n, String oldp, String newp) {
         ValidationResponse currentCheck = checkCurrentDetails(ud, n, oldp);
         if (!currentCheck.result() && !currentCheck.message().contains("password")) {
@@ -68,6 +99,13 @@ public class UserDataValidator {
         return new ValidationResponse(true, "Password is valid and ready to be updated.");
     }
 
+    /**
+     * Checks if the username and password fields are present.
+     * It validates that both fields are not null or blank.
+     * @param n the username to check
+     * @param p the password to check
+     * @return ValidationResponse indicating the result of the validation
+     */
     public ValidationResponse checkForFieldsPresent(String n, String p){
         if (n == null || n.isBlank() || p == null || p.isBlank()) {
             return new ValidationResponse(false, "Username and password must be provided.");
@@ -75,6 +113,14 @@ public class UserDataValidator {
         return new ValidationResponse(true, "Fields are present.");
     }
 
+    /**
+     * Checks if the username, old password, and new password fields are present.
+     * It validates that all three fields are not null or blank.
+     * @param n the username to check
+     * @param oldp the old password to check
+     * @param newp the new password to check
+     * @return ValidationResponse indicating the result of the validation
+     */
     public ValidationResponse checkForFieldsPresent(String n, String oldp, String newp) {
         if (n == null || n.isBlank() || oldp == null || oldp.isBlank() || newp == null || newp.isBlank()) {
             return new ValidationResponse(false, "All fields must be provided.");

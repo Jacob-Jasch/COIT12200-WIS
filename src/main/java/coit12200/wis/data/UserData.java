@@ -5,19 +5,24 @@ import java.util.ArrayList;
 import java.util.List;
 import static coit12200.wis.roles.UserDataValidator.generateSHA1;
 
+/**
+ * UserData class handles database operations related to user data.
+ * It connects to a MySQL database, retrieves user details, and updates passwords.
+ * @author Jacob Duckworth
+ */
 public class UserData {
     public record UserDetails(String user, String password){};
     Connection connection;
 
     /**
-     *
+     * Constructor for UserData class.
      */
     public UserData() {
 
     }
 
     /**
-     *
+     * Attempts to connect to a MySQL database named "USERS"
      */
     public void connect() {
         try {
@@ -30,7 +35,7 @@ public class UserData {
     }
 
     /**
-     *
+     * Disconnects from the MySQL database.
      */
     public void disconnect() {
         try {
@@ -41,9 +46,9 @@ public class UserData {
     }
 
     /**
-     *
-     * @param n
-     * @return
+     * Retrieves user details from the database based on the username.
+     * @param n the username to search for
+     * @return a list of UserDetails containing the username and password
      */
     public List<UserDetails> getUser(String n){
         List<UserDetails> users = new ArrayList<>();
@@ -65,10 +70,11 @@ public class UserData {
     }
 
     /**
-     *
-     * @param n
-     * @param p
-     * @return
+     * Updates the password for a given username in the database.
+     * It hashes the new password using SHA-1 before updating.
+     * @param n the username for which the password needs to be updated
+     * @param p the new password to set
+     * @return the number of rows affected by the update operation
      */
     public int updatePassword(String n, String p){
         int rowsAffected = 0;

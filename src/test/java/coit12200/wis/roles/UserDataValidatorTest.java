@@ -35,14 +35,14 @@ class UserDataValidatorTest {
     }
 
     @Test
-    void checkCurrentDetailNullsUserTest() {
+    void checkCurrentDetailsNoUserProvidedTest() {
         UserDataValidator validator = new UserDataValidator();
         ValidationResponse vr = validator.checkCurrentDetails(null, "wrong", "password");
         assertEquals("User not found.", vr.message());
     }
 
     @Test
-    void checkCurrentDetailsNoUserProvidedTest() {
+    void checkCurrentDetailNullsUserTest() {
         UserDataValidator validator = new UserDataValidator();
         ValidationResponse vr = validator.checkCurrentDetails(null, null, null);
         assertEquals("User not found.", vr.message());

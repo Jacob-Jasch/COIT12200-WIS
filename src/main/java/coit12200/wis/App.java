@@ -15,14 +15,20 @@ import javafx.stage.Stage;
 import java.io.IOException;
 
 /**
- * JavaFX App
+ * The main application class for the Whiskey Information System (WIS).
+ * It initializes the application, and sets up the scene coordinator 
+ * This class is responsible for creating the initial scenes and injecting
+ * necessary data managers and validators into the controllers.
+ * 
+ * @author Jacob Duckworth
  */
 public class App extends Application {
 
     /**
-     *
-     * @param stage
-     * @throws IOException
+     * Starts the JavaFX application by initializing the scene coordinator
+     * and creating the initial scenes for the application.
+     * @param stage the primary stage for this application, onto which the application scene can be set
+     * @throws IOException if an I/O error occurs while loading the FXML files
      */
     @Override
     public void start(Stage stage) throws IOException {
@@ -66,18 +72,20 @@ public class App extends Application {
     }
 
     /**
-     *
-     * @param args
+     * The main method to launch the JavaFX application.
+     * This method is the entry point of the application and is called by the JavaFX runtime.
+     * @param args the command line arguments passed to the application
      */
     public static void main(String[] args) {
         launch();
     }
 
     /**
-     *
-     * @param key
-     * @return
-     * @throws Exception
+     * Creates a Scene object based on the provided SceneKey.
+     * It loads the corresponding FXML file and sets the controller for the scene.
+     * @param key the SceneKey that determines which scene to create
+     * @return a Scene object initialized with the specified FXML file and its controller
+     * @throws Exception if an error occurs while loading the FXML file or creating the scene
      */
     private static Scene makeScene(SceneKey key) throws Exception  {
         // construct path name for fxml file

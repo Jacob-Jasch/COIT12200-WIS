@@ -4,15 +4,32 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * WhiskeyData handles database operations related to Whiskey data.
+ * It connects to a MySQL database, and retrieves whiskey details.
+ * @author Jacob Duckworth
+ */
 public class WhiskeyData {
+    /**
+     * WhiskeyDetails is a record that holds information about a whiskey.
+     * @param distillery the name of the distillery
+     * @param age the age of the whiskey in years
+     * @param region the region where the whiskey is produced
+     * @param price the price of the whiskey in cents
+     */
     public record WhiskeyDetails(String distillery, int age, String region, int price) { }
     private Connection connection;
 
-
+    /**
+     * Constructor for WhiskeyData class.
+     */
     public WhiskeyData() {
 
     }
 
+    /**
+     * Attempts to connect to a MySQL database named "WHISKEY".
+     */
     public void connect(){
         try {
             connection = DriverManager.
@@ -23,6 +40,9 @@ public class WhiskeyData {
         }
     }
 
+    /**
+     * Disconnects from the MySQL database.
+     */
     public void disconnect(){
         try {
             connection.close();
@@ -31,6 +51,11 @@ public class WhiskeyData {
         }
     }
 
+    /**
+     * Retrieves all malts from the database.
+     * Each malt is represented by a WhiskeyDetails record containing distillery, age, region, and price.
+     * @return a list of WhiskeyDetails representing all malts
+     */
     public List<WhiskeyDetails> getAllMalts(){
         List<WhiskeyDetails> allMalts = new ArrayList<>();
         try {
@@ -50,6 +75,12 @@ public class WhiskeyData {
         return allMalts;
     }
 
+    /**
+     * Retrieves malts from the database based on the specified region.
+     * Each malt is represented by a WhiskeyDetails record containing distillery, age, region, and price.
+     * @param r the region to filter malts by
+     * @return a list of WhiskeyDetails representing malts from the specified region
+     */
     public List<WhiskeyDetails> getMaltsFromRegion(String r){
         List<WhiskeyDetails> malts = new ArrayList<>();
         PreparedStatement ps = null;
@@ -73,6 +104,13 @@ public class WhiskeyData {
         return malts;
     }
 
+    /**
+     * Retrieves malts from the database that fall within a specified age range.
+     * Each malt is represented by a WhiskeyDetails record containing distillery, age, region, and price.
+     * @param r1 the lower bound of the age range
+     * @param r2 the upper bound of the age range
+     * @return a list of WhiskeyDetails representing malts within the specified age range
+     */
     public List<WhiskeyDetails> getMaltsInAgeRange(int r1, int r2){
         List<WhiskeyDetails> malts = new ArrayList<>();
         PreparedStatement ps = null;

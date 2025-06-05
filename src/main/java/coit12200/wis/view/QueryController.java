@@ -20,40 +20,62 @@ import coit12200.wis.data.WhiskeyData;
 import coit12200.wis.data.WhiskeyData.WhiskeyDetails;
 
 /**
- * FXML Controller class
- *
- * @author 12273526
+ * QueryController handles the user interface for querying whiskey data.
+ * It provides methods to clear input fields, exit the application, navigate
+ * through records,
+ * and display whiskey records based on various criteria such as region and age
+ * range.
+ * 
+ * @author Jacob Duckworth
  */
 public class QueryController implements Initializable {
 
+    /** Button to clear the input fields and messages. */
     @FXML
     private Button btnClear;
+    /** Button to exit the application. */
     @FXML
     private Button btnExit;
+    /** TextField for user input of distillery name. */
     @FXML
     private TextField txtDistillery;
+    /** TextField for user input of whiskey age. */
     @FXML
     private TextField txtAge;
+    /** TextField for user input of whiskey region. */
     @FXML
     private TextField txtRegion;
+    /** TextField for user input of whiskey price. */
     @FXML
     private TextField txtPrice;
+    /** Button to navigate to the next whiskey record. */
     @FXML
     private Button btnNext;
+    /** Button to navigate to the previous whiskey record. */
     @FXML
     private Button btnPrevious;
+    /** Button to display all malt whiskey records. */
     @FXML
     private Button btnAllMalts;
+    /** Button to display malt whiskey records from a specific region. */
     @FXML
     private Button btnMaltsFromRegion;
+    /** Button to display malt whiskey records within a specific age range. */
     @FXML
     private Button btnMaltsAgeRange;
+    /**
+     * TextArea to display messages to the user, such as validation errors or status
+     * updates.
+     */
     @FXML
     private TextArea txaMessages;
+    /** TextField for user input of region to filter malt whiskeys. */
     @FXML
     private TextField txtMaltsRegion;
+    /** TextField for user input of lower age limit for malt whiskeys. */
     @FXML
     private TextField txtMaltLowAge;
+    /** TextField for user input of upper age limit for malt whiskeys. */
     @FXML
     private TextField txtMaltHighAge;
     private WhiskeyDataManager dataManager;
@@ -61,6 +83,12 @@ public class QueryController implements Initializable {
     private WhiskeyDataValidator validator;
     private SceneCoordinator sceneCoordinator;
 
+    /**
+     * Injects dependencies into the QueryController.
+     * @param sc  the SceneCoordinator to manage scene transitions
+     * @param wdm the WhiskeyDataManager to handle whiskey data operations
+     * @param wdv the WhiskeyDataValidator to validate whiskey data
+     */
     public void inject(SceneCoordinator sc, WhiskeyDataManager wdm, WhiskeyDataValidator wdv) {
         this.sceneCoordinator = sc;
         this.dataManager = wdm;
@@ -68,7 +96,7 @@ public class QueryController implements Initializable {
     }
 
     /**
-     * Initializes the controller class.
+     * Initializes the controller by connecting to the whiskey data source.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
@@ -77,8 +105,14 @@ public class QueryController implements Initializable {
 
         dataManager = new WhiskeyDataManager(wd);
         validator = new WhiskeyDataValidator();
-    }    
+    }
 
+    /**
+     * Clears the input fields and messages displayed in the TextArea.
+     * This method is called when the user clicks the clear button.
+     * 
+     * @param event the ActionEvent triggered by the clear button click
+     */
     @FXML
     private void clearAction(ActionEvent event) {
         txtAge.clear();
@@ -91,11 +125,24 @@ public class QueryController implements Initializable {
         txaMessages.clear();
     }
 
+    /**
+     * Exits the application when the user clicks the exit button.
+     * This method is called when the user clicks the exit button.
+     * 
+     * @param event the ActionEvent triggered by the exit button click
+     */
     @FXML
     private void exitAction(ActionEvent event) {
         System.exit(0);
     }
 
+    /**
+     * Navigates to the next whiskey record in the list.
+     * If there are no more records, it displays a message indicating the end of the
+     * list.
+     * 
+     * @param event the ActionEvent triggered by the next button click
+     */
     @FXML
     private void nextAction(ActionEvent event) {
         WhiskeyDetails nextRecord = dataManager.next();
@@ -110,6 +157,13 @@ public class QueryController implements Initializable {
         }
     }
 
+    /**
+     * Navigates to the previous whiskey record in the list.
+     * If there are no previous records, it displays a message indicating the end of
+     * the list.
+     * 
+     * @param event the ActionEvent triggered by the previous button click
+     */
     @FXML
     private void previousAction(ActionEvent event) {
         WhiskeyDetails previousRecord = dataManager.previous();
@@ -124,6 +178,13 @@ public class QueryController implements Initializable {
         }
     }
 
+    /**
+     * Displays all malt whiskey records.
+     * It retrieves all malt records from the data manager and displays the first
+     * record's details.
+     * 
+     * @param event the ActionEvent triggered by the display all malts button click
+     */
     @FXML
     private void displayAllMaltsAction(ActionEvent event) {
         int count = dataManager.findAllMalts();
@@ -142,6 +203,12 @@ public class QueryController implements Initializable {
         }
     }
 
+    /**
+     * Displays malt whiskey records from a specific region.
+     * It validates the region input and retrieves records from that region.
+     * 
+     * @param event the ActionEvent triggered by the display malts from region button click
+     */
     @FXML
     private void displayMaltsFromRegionAction(ActionEvent event) {
         String region = txtMaltsRegion.getText();
@@ -164,8 +231,15 @@ public class QueryController implements Initializable {
             txaMessages.setText("Found " + count + " malts in region: " + region);
         } else {
             txaMessages.setText("No malts found in region: " + region);
-        }    }
+        }
+    }
 
+    /**
+     * Displays malt whiskey records within a specified age range.
+     * It validates the age range input and retrieves records within that range.
+     * 
+     * @param event the ActionEvent triggered by the display malts in age range button click
+     */
     @FXML
     private void displayMaltsInAgeRangeAction(ActionEvent event) {
         String lowStr = txtMaltLowAge.getText();
@@ -190,6 +264,7 @@ public class QueryController implements Initializable {
             txaMessages.setText("Found " + count + " malts in age range.");
         } else {
             txaMessages.setText("No malts found in that age range.");
-        }    }
-    
+        }
+    }
+
 }

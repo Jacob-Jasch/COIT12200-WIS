@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.062" tests="14" errors="0" skipped="0" failures="0">
+  <properties>
+    <property name="java.specification.version" value="21"/>
+    <property name="sun.cpu.isalist" value="amd64"/>
+    <property name="sun.jnu.encoding" value="Cp1252"/>
+    <property name="java.class.path" value="C:\Users\12273526\OneDrive - CQUniversity\uni\Sem 3\COIT12200 Software Design &amp; Development\AT3\WIS\target\test-classes;C:\Users\12273526\OneDrive - CQUniversity\uni\Sem 3\COIT12200 Software Design &amp; Development\AT3\WIS\target\classes;C:\Users\12273526\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13-win.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13-win.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13-win.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13-win.jar;C:\Users\12273526\.m2\repository\com\mysql\mysql-connector-j\9.0.0\mysql-connector-j-9.0.0.jar;C:\Users\12273526\.m2\repository\com\google\protobuf\protobuf-java\4.26.1\protobuf-java-4.26.1.jar;C:\Users\12273526\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.13.0-M3\junit-jupiter-api-5.13.0-M3.jar;C:\Users\12273526\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\12273526\.m2\repository\org\junit\platform\junit-platform-commons\1.13.0-M3\junit-platform-commons-1.13.0-M3.jar;C:\Users\12273526\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
+    <property name="java.vm.vendor" value="Microsoft"/>
+    <property name="sun.arch.data.model" value="64"/>
+    <property name="user.variant" value=""/>
+    <property name="java.vendor.url" value="https://www.microsoft.com"/>
+    <property name="user.timezone" value="Australia/Brisbane"/>
+    <property name="os.name" value="Windows 11"/>
+    <property name="java.vm.specification.version" value="21"/>
+    <property name="user.country" value="AU"/>
+    <property name="sun.java.launcher" value="SUN_STANDARD"/>
+    <property name="sun.boot.library.path" value="C:\Program Files\Microsoft\jdk-21.0.2.13-hotspot\bin"/>
+    <property name="sun.java.command" value="C:\Users\12273526\AppData\Local\Temp\surefire14158388753179862878\surefirebooter-20250529112829218_3.jar C:\Users\12273526\AppData\Local\Temp\surefire14158388753179862878 2025-05-29T11-28-26_957-jvmRun1 surefire-20250529112829218_1tmp surefire_0-20250529112829218_2tmp"/>
+    <property name="jdk.debug" value="release"/>
+    <property name="test" value="coit12200.wis.roles.WhiskeyDataManagerTest"/>
+    <property name="surefire.test.class.path" value="C:\Users\12273526\OneDrive - CQUniversity\uni\Sem 3\COIT12200 Software Design &amp; Development\AT3\WIS\target\test-classes;C:\Users\12273526\OneDrive - CQUniversity\uni\Sem 3\COIT12200 Software Design &amp; Development\AT3\WIS\target\classes;C:\Users\12273526\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-controls\13\javafx-controls-13-win.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-graphics\13\javafx-graphics-13-win.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-base\13\javafx-base-13-win.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13.jar;C:\Users\12273526\.m2\repository\org\openjfx\javafx-fxml\13\javafx-fxml-13-win.jar;C:\Users\12273526\.m2\repository\com\mysql\mysql-connector-j\9.0.0\mysql-connector-j-9.0.0.jar;C:\Users\12273526\.m2\repository\com\google\protobuf\protobuf-java\4.26.1\protobuf-java-4.26.1.jar;C:\Users\12273526\.m2\repository\org\junit\jupiter\junit-jupiter-api\5.13.0-M3\junit-jupiter-api-5.13.0-M3.jar;C:\Users\12273526\.m2\repository\org\opentest4j\opentest4j\1.3.0\opentest4j-1.3.0.jar;C:\Users\12273526\.m2\repository\org\junit\platform\junit-platform-commons\1.13.0-M3\junit-platform-commons-1.13.0-M3.jar;C:\Users\12273526\.m2\repository\org\apiguardian\apiguardian-api\1.1.2\apiguardian-api-1.1.2.jar;"/>
+    <property name="sun.cpu.endian" value="little"/>
+    <property name="user.home" value="C:\Users\12273526"/>
+    <property name="user.language" value="en"/>
+    <property name="java.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.version.date" value="2024-01-16"/>
+    <property name="java.home" value="C:\Program Files\Microsoft\jdk-21.0.2.13-hotspot"/>
+    <property name="file.separator" value="\"/>
+    <property name="basedir" value="C:\Users\12273526\OneDrive - CQUniversity\uni\Sem 3\COIT12200 Software Design &amp; Development\AT3\WIS"/>
+    <property name="java.vm.compressedOopsMode" value="Zero based"/>
+    <property name="line.separator" value="&#10;"/>
+    <property name="java.vm.specification.vendor" value="Oracle Corporation"/>
+    <property name="java.specification.name" value="Java Platform API Specification"/>
+    <property name="surefire.real.class.path" value="C:\Users\12273526\AppData\Local\Temp\surefire14158388753179862878\surefirebooter-20250529112829218_3.jar"/>
+    <property name="user.script" value=""/>
+    <property name="sun.management.compiler" value="HotSpot 64-Bit Tiered Compilers"/>
+    <property name="java.runtime.version" value="21.0.2+13-LTS"/>
+    <property name="user.name" value="12273526"/>
+    <property name="stdout.encoding" value="Cp1252"/>
+    <property name="path.separator" value=";"/>
+    <property name="os.version" value="10.0"/>
+    <property name="java.runtime.name" value="OpenJDK Runtime Environment"/>
+    <property name="file.encoding" value="UTF-8"/>
+    <property name="java.vm.name" value="OpenJDK 64-Bit Server VM"/>
+    <property name="java.vendor.version" value="Microsoft-8905927"/>
+    <property name="maven.ext.class.path" value="C:\Program Files\NetBeans-20\netbeans\java\maven-nblib\netbeans-eventspy.jar"/>
+    <property name="localRepository" value="C:\Users\12273526\.m2\repository"/>
+    <property name="java.vendor.url.bug" value="https://github.com/microsoft/openjdk/issues"/>
+    <property name="java.io.tmpdir" value="C:\Users\12273526\AppData\Local\Temp\"/>
+    <property name="java.version" value="21.0.2"/>
+    <property name="user.dir" value="C:\Users\12273526\OneDrive - CQUniversity\uni\Sem 3\COIT12200 Software Design &amp; Development\AT3\WIS"/>
+    <property name="os.arch" value="amd64"/>
+    <property name="java.vm.specification.name" value="Java Virtual Machine Specification"/>
+    <property name="sun.os.patch.level" value=""/>
+    <property name="native.encoding" value="Cp1252"/>
+    <property name="java.library.path" value="C:\Program Files\Microsoft\jdk-21.0.2.13-hotspot\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\PuTTY\;C:\Program Files\Microsoft\jdk-21.0.2.13-hotspot\bin;C:\Program Files\Microsoft\jdk-21.0.2.13-hotspot\\bin;%JDK_HOME%\bin;%GLASSFISH_HOME%\bin;%GLASSFISH_HOME%\glassfish\bin;C:\Program Files\nodejs\;C:\ProgramData\npm\node_modules\.bin;C:\Program Files\dotnet\;C:\Program Files\Microsoft VS Code\bin;C:\Program Files\Common Files\Autodesk Shared\;C:\Program Files\Microsoft SQL Server\150\Tools\Binn\;C:\Program Files\Python312\;C:\Program Files\Python312\Scripts\;C:\Program Files\Git\cmd;C:\Program Files\GitHub CLI\;C:\Windows\system32\config\systemprofile\AppData\Local\Microsoft\WindowsApps;C:\Windows\system32\config\systemprofile\AppData\Roaming\npm;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Users\12273526\AppData\Local\Microsoft\WindowsApps;;."/>
+    <property name="java.vm.info" value="mixed mode, sharing"/>
+    <property name="stderr.encoding" value="Cp1252"/>
+    <property name="java.vendor" value="Microsoft"/>
+    <property name="java.vm.version" value="21.0.2+13-LTS"/>
+    <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
+    <property name="java.class.version" value="65.0"/>
+  </properties>
+  <testcase name="nextGoldenPathTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.018"/>
+  <testcase name="findMaltsFromRegionGoldenPathTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.001"/>
+  <testcase name="findMaltsInAgeRangeGoldenPathTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.001"/>
+  <testcase name="connectGoldenPathTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.0"/>
+  <testcase name="previousWithTwoRecordsTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.015"/>
+  <testcase name="previousWithOneRecordTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.001"/>
+  <testcase name="nextWithOneRecordTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.001"/>
+  <testcase name="disconnectGoldenPathTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.0"/>
+  <testcase name="nextWithTwoRecordsTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.0"/>
+  <testcase name="findAllMaltsGoldenPathTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.0"/>
+  <testcase name="setDetailsGoldenPathTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.0"/>
+  <testcase name="nextWithNoRecordsTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.0"/>
+  <testcase name="firstGoldenPathTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.0"/>
+  <testcase name="previousWithZeroRecordsTest" classname="coit12200.wis.roles.WhiskeyDataManagerTest" time="0.0"/>
+</testsuite>

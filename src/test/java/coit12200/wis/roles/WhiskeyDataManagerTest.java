@@ -4,32 +4,10 @@ import coit12200.wis.data.WhiskeyData;
 import org.junit.jupiter.api.Test;
 import coit12200.wis.data.WhiskeyData.WhiskeyDetails;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import static org.junit.jupiter.api.Assertions.*;
 
 class WhiskeyDataManagerTest {
 
-    @Test
-    void findAllMaltsGoldenPathTest() {
-    }
-
-    @Test
-    void findMaltsFromRegionGoldenPathTest() {
-    }
-
-    @Test
-    void findMaltsInAgeRangeGoldenPathTest() {
-    }
-
-    @Test
-    void firstGoldenPathTest() {
-    }
-
-    @Test
-    void nextGoldenPathTest() {
-    }
 
     @Test
     public void nextWithNoRecordsTest() {
@@ -98,17 +76,5 @@ class WhiskeyDataManagerTest {
         wdm.next();
         WhiskeyDetails first = wdm.previous();
         assertEquals(details[0], first);
-    }
-
-    @Test
-    void connectGoldenPathTest() {
-    }
-
-    @Test
-    void disconnectGoldenPathTest() {
-    }
-
-    @Test
-    void setDetailsGoldenPathTest() {
     }
 }
