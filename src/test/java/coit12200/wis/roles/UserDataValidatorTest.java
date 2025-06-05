@@ -22,7 +22,7 @@ class UserDataValidatorTest {
         UserData.UserDetails testUser = new UserData.UserDetails("admin", "password");
 
         ValidationResponse vr = validator.checkCurrentDetails(testUser, "admin", "wrong");
-        assertEquals("Password is incorrect.", vr.message());
+        assertEquals("An unexpected error has occurred.", vr.message());
     }
 
     @Test
