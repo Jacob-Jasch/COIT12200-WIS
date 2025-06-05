@@ -1,0 +1,4 @@
+--patch-module
+coit12200.wis=_
+--add-reads
+coit12200.wis=ALL-UNNAMED

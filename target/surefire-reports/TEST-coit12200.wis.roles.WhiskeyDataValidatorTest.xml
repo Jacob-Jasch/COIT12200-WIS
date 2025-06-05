@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="coit12200.wis.roles.UserDataValidatorTest" time="0.084" tests="17" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.022" tests="9" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="22"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -60,21 +60,13 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="66.0"/>
   </properties>
-  <testcase name="checkForFieldsPresentCorrectTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.021"/>
-  <testcase name="checkCurrentDetailsUserNotFoundTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="newPasswordValidTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="checkCurrentDetailsNoUserProvidedTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="newPasswordNullTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="checkForFieldsPresentSomeEmptyTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="checkForFieldsPresentBothEmptyTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="checkCurrentDetailsWrongPasswordTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.021"/>
-  <testcase name="checkForFieldsPresentOneEmptyTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="checkForFieldsPresentWhitespaceOnlyTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="checkForFieldsPresentAllEmptyTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.0"/>
-  <testcase name="checkCurrentDetailNullsUserTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="checkForFieldsPresentAllValidTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="checkForFieldsPresentNullInputTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="newPasswordContainsQuoteTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.0"/>
-  <testcase name="checkCurrentDetailsValidTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
-  <testcase name="newPasswordMissingUppercaseTest" classname="coit12200.wis.roles.UserDataValidatorTest" time="0.001"/>
+  <testcase name="sameLowerAndUpperAgeTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.004"/>
+  <testcase name="whitespaceRegionTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.001"/>
+  <testcase name="lowerGreaterThanUpperTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.002"/>
+  <testcase name="negativeAgeTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.001"/>
+  <testcase name="emptyRegionTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.001"/>
+  <testcase name="validAgeRangeTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.002"/>
+  <testcase name="validRegionTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.001"/>
+  <testcase name="nullRegionTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.001"/>
+  <testcase name="nonIntegerAgeTest" classname="coit12200.wis.roles.WhiskeyDataValidatorTest" time="0.001"/>
 </testsuite>
